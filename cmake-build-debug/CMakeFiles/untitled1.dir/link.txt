@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/untitled1.dir/Assn1_Q3.c.o CMakeFiles/untitled1.dir/Assn1_main.c.o  -o untitled1 
