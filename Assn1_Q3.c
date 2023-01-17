@@ -4,7 +4,7 @@
  * Description:
  *
  * Auhtors: Sepehr Ahmadipourshirazi
- * Student number: 301408650
+ * Student decimalber: 301408650
  */
 
 #include <stdio.h>
@@ -47,9 +47,13 @@ void show_bytes_2(byte_pointer start, size_t len) {
 
 // Question 3 d.
 void show_bits(int decimal) {
-	
-  // put your code here!
 
+    int size = sizeof(decimal) - 1;
+
+    for(int i=8*size; i>=0; i--) {
+        (decimal & (1 << i)) ? putchar('1') : putchar('0');
+    }
+    printf("\n");
   return; 
 }	
 
