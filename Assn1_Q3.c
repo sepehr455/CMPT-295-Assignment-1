@@ -17,8 +17,7 @@ void show_bytes(byte_pointer start, size_t len) {
   size_t i;
   for (i = 0; i < len; i++){
       printf("%p", &start[i]);
-      printf(" 0x%x ", start[i]);
-      printf(" %b ", start[i]);
+      printf(" 0x%.2x", start[i]);
       printf("\n");
   }
   printf("\n");
@@ -34,15 +33,14 @@ void show_bytes(byte_pointer start, size_t len) {
 
 // Question 3 c.
 void show_bytes_2(byte_pointer start, size_t len) {
-  size_t i;
-
-  unsigned char ptr = start[0];
-
-    for (i = 0; i < len; i++) {
-        printf(" %.2x", &ptr);
+    size_t i;
+    for (i = 0; i < len; i++){
+        printf("%p", &(*start));
+        printf(" 0x%.2x", (*start++));
+        printf("\n");
     }
-  printf("\n");
-  return;
+    printf("\n");
+    return;
 }
 
 // Question 3 d.
@@ -50,40 +48,50 @@ void show_bits(int decimal) {
 
     int size = sizeof(decimal) - 1;
 
-    for(int i=8*size; i>=0; i--) {
+    for (int i = 8 * size; i >= 0; i--) {
         (decimal & (1 << i)) ? putchar('1') : putchar('0');
     }
     printf("\n");
-  return; 
-}	
-
+    return;
+}
 
 // Question 3 e.
 int mask_LSbits(int n) {
-	
-  // put your code here!
+    //first we find the max binary representation using n bits
+    int max_binary_representation = (2^n) -1;
 
-  // feel free to modify this return statement
-  return 0; 
+
+    int size = sizeof(max_binary_representation) - 1;
+
+    for (int i = 7 * size; i >= 0; i--) {
+        (max_binary_representation & (1 << i)) ? putchar('1') : putchar('0');
+    }
+
+    //then we use the show bits method to convert the max representation to binary
+    printf("the binary representation is:");
+
+
+    return 0;
 }
 
+
 void show_int(int x) {
-  printf("\nival = %d\n", x); 
-  show_bytes((byte_pointer) &x, sizeof(int)); 
-  show_bytes_2((byte_pointer) &x, sizeof(int)); 
-  return;	
+    printf("\nival = %d\n", x);
+    show_bytes((byte_pointer) &x, sizeof(int));
+    show_bytes_2((byte_pointer) &x, sizeof(int));
+    return;
 }
 
 void show_float(float x) {
-  printf("fval = %f\n", x); 	
-  show_bytes((byte_pointer) &x, sizeof(float));
-  show_bytes_2((byte_pointer) &x, sizeof(float)); 
-  return;	
+    printf("fval = %f\n", x);
+    show_bytes((byte_pointer) &x, sizeof(float));
+    show_bytes_2((byte_pointer) &x, sizeof(float));
+    return;
 }
 
 void show_pointer(void *x) {
-  printf("pval = %p\n", x); 
-  show_bytes((byte_pointer) &x, sizeof(void *));
-  show_bytes_2((byte_pointer) &x, sizeof(void *));
-  return;	
+    printf("pval = %p\n", x);
+    show_bytes((byte_pointer) &x, sizeof(void *));
+    show_bytes_2((byte_pointer) &x, sizeof(void *));
+    return;
 }
