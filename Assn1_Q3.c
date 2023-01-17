@@ -18,6 +18,7 @@ void show_bytes(byte_pointer start, size_t len) {
   for (i = 0; i < len; i++){
       printf("%p", &start[i]);
       printf(" 0x%x ", start[i]);
+      printf(" %b ", start[i]);
       printf("\n");
   }
   printf("\n");
@@ -25,7 +26,10 @@ void show_bytes(byte_pointer start, size_t len) {
 }
 
 // Question 3 b.
-// little endian?
+// The compiler is little endian:
+// Explanation: For example, ival converted to hexadecimal is 3039. From the print output, we notice that as the memory address increments,
+// (going from 00000020709ffd10, 00000020709ffd11) we see that 39 shows up before 30, meaning that the compiler puts the least significant byte(39) at the
+// Lowest memory address before 30.
 
 
 // Question 3 c.
