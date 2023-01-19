@@ -20,9 +20,16 @@ int main() {
     show_float(fval);
     show_pointer(pval);
 
-/* Add your test cases here in order
-   to test the functions you have modified 
-   and the functions you have created. */
+    show_bits(ival);
+    show_bits(-ival);
+
+    printf("the mask value for 1 is %d" , mask_LSbits(1));
+    printf("\n");
+    printf("the mask value for 2 is %d" , mask_LSbits(2));
+    printf("\n");
+    printf("the mask value for 4 is %d" , mask_LSbits(4));
+    printf("\n");
+    printf("the mask value for 32 is %d" , mask_LSbits(32));
 
     return 0;
 
