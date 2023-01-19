@@ -27,9 +27,9 @@ int main() {
     printf("\n");
     printf("the mask value for 2 is %d" , mask_LSbits(2));
     printf("\n");
-    printf("the mask value for 4 is %d" , mask_LSbits(4));
+    printf("the mask value for 31 is %d" , mask_LSbits(31));
     printf("\n");
-    printf("the mask value for 32 is %d" , mask_LSbits(32));
+    printf("the mask value for 32 is %d" , mask_LSbits(55));
 
     return 0;
 

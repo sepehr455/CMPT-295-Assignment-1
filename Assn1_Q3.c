@@ -72,12 +72,12 @@ int mask_LSbits(int n) {
         //we add the -1 so that it matches the formula
         return ((1 << n) - 1);
     } else {
-        //case where n is greater than size (w) allowed
-        //in this case we return mask with all 1's
-        n = 31;
-        return ((1 << n) - 1);
+        //the msb is 1 therefore, we have a negative value
+        //if all bits are 1s, we get -(2^w) + (2^w - 1) which is equal to -1
+        return -1;
     }
 }
+
 
 void show_int(int x) {
     printf("\nival = %d\n", x);
